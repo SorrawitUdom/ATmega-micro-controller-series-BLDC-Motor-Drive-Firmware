@@ -97,7 +97,7 @@ int main(void)
 
 	//safety 
 	pwmValue = A_IN();
-	//safety(pwmValue);
+	safety(pwmValue);
 	
 	//Set All phase low to charge the bootstrap capacitors
 	ALow();
@@ -111,11 +111,8 @@ int main(void)
 			stepOut = step;
 			stepPrevious = step;		
 		}
-		//pwmValue = A_IN();
-		//RUN_SEQ(stepOut,pwmValue);
-		stepOut = 5;
+		pwmValue = A_IN();
 		RUN_SEQ(stepOut,pwmValue);
-		pwmValue = 127;	
 	}
 	return 0;
 }
